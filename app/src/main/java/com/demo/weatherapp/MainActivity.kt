@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         val viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         viewModel.data.observe(this){
+            binding.tvCity.text = it.name
             binding.tvTemp.text = it.main.temp.toInt().toString().plus("\u2103")
             binding.tvMax.text = it.main.tempMax.toInt().toString().plus("\u2103")
             binding.tvMin.text = it.main.tempMin.toInt().toString().plus("\u2103")
